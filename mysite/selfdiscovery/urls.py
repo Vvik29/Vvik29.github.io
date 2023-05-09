@@ -1,5 +1,9 @@
-from django.urls import path
+from django.conf import settings
+from django.urls import path, re_path
 from .import views
+
+from django.views.static import serve
+
 
 urlpatterns = [
 
@@ -17,7 +21,8 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('post/<int:id>/', views.post, name='post'),
 
-
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 ]
 
