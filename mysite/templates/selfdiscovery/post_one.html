@@ -1,0 +1,39 @@
+{% extends 'selfdiscovery/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    Статті
+{% endblock %}
+
+
+{% block content %}
+<div class="container" style="justify-content: center">
+  <div class="row"  ><h1 style="text-align:center">Список статтей</h1>
+    <div class="col-lg-12">
+    <div class="col-lg-12 col-md-12 col-sm-12" >
+
+        <ul>
+            <li>
+                <a href="{% url 'posts' %}" class=" me-2" ><<<</a>
+            </li>
+            <li>
+              <h2>{{ post.title }}</h2>
+              <p id="article">{{ post.content}}</p>
+
+              <p>
+                  <small>Автор: {{ post.author.username }}</small>
+              <br>
+              <small>Дата публикации: {{ post.created_at }}</small>
+              </p>
+
+
+            </li>
+
+        </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

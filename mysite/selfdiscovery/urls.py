@@ -15,7 +15,7 @@ urlpatterns = [
     path('contacts/posts_list', views.post_list, name='posts'),
     path('contacted/', views.AdminContactView.as_view(), name='contact'),
     path('search', views.search, name='search'),
-    path('selfdicovery/post/<int:id>/', views.post, name='post'),
+    path('post/<int:id>/', views.post, name='post'),
 
 
 

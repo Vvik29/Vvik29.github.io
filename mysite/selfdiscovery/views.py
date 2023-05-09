@@ -142,6 +142,14 @@ def post_list(request):
 
 
 
+def post(request, id=None):
+    posts = get_object_or_404 (Post, pk=id)
+    context = {"post": posts}
+    return render(request, 'selfdiscovery/post_one.html', context)
+
+
+
+
 class AdminContactView(View):
     template_name = "selfdiscovery/contact_success.html"
 
@@ -163,12 +171,7 @@ class AdminContactView(View):
 def search(request):
     query = request.POST.get('query')
     posts = Post.objects.filter(Q(content__icontains=query) | Q (title__icontains=query))
-    context = {"posts": posts}
-
-    return render(request, 'selfdiscovery/post_list.html', context)
-
-
-def post(request, id=None):
-    posts = get_object_or_404 (Post, pk=id)
     context = {"post": posts}
+
     return render(request, 'selfdiscovery/post_list.html', context)
+
