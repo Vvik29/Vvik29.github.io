@@ -171,7 +171,7 @@ class AdminContactView(View):
 def search(request):
     query = request.POST.get('query')
     posts = Post.objects.filter(Q(content__icontains=query) | Q (title__icontains=query))
-    context = {"post": posts}
+    context = {"posts": posts}
 
     return render(request, 'selfdiscovery/post_list.html', context)
 
