@@ -1,0 +1,30 @@
+{% extends 'selfdiscovery/base.html' %}
+{% load crispy_forms_tags %}
+{%load static%}
+
+{% block title %}
+    Вхід
+{% endblock %}
+
+
+{% block content %}
+<div class="container ">
+  <div class="row  my_c">
+    <div class="col-md-5">
+      <h2>Вхід</h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <p></p>
+        <button type="submit" class="btn btn-primary bt" style="width: 30%">Login</button>
+      </form>
+      <form method="POST" action="{% url 'main' %}">
+        {% csrf_token %}
+        <button type="submit " class="btn btn-primary bt" style="width: 30%" >Cancell</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

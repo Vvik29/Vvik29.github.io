@@ -1,0 +1,40 @@
+{% extends 'selfdiscovery/base.html' %}
+{%load static%}
+
+{% block title%}
+    Відгуки
+{%endblock%}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 style="text-align:center">Відгуки</h1>
+    </div>
+  </div>
+
+  {% if feedbacks %}
+    <div class="container">
+        <div class="row" style="justify-content: center">
+        {% for feedback in feedbacks %}
+          <div class="col-xl-5 col-md-6 col-sm-12 my_f" >
+            <p><h3>{{ feedback.subject }}</h3> </p>
+            <p>{{ feedback.message }} <hr> {{ feedback.created_at }}</p>
+            <p>{{ feedback.user }}</p>
+          </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="container">
+      <p><h1>No feedbacks yet.</h1></p>
+        </div>
+    </div>
+  {% endif %}
+
+</div>
+</div>
+
+
+
+{% endblock %}

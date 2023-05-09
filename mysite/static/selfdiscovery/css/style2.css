@@ -1,0 +1,58 @@
+html, body {
+      height: 100%;
+      margin: 0;
+
+    }
+
+#body {
+  background-image: url('/static/selfdiscovery/pictures/bg-img.jpg');
+  background-size: cover; /* этот параметр задает масштабирование фоновой картинки */
+  background-position: center; /* этот параметр задает позиционирование фоновой картинки */
+  background-repeat: no-repeat; /* этот параметр задает повторение фоновой картинки */
+}
+
+
+section {
+      min-height: calc(100% - 110px); /* subtract header and footer height */
+    }
+
+
+footer {
+
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+}
+
+
+li {
+  list-style-type: none;
+}
+
+:root {
+    --color1: #05b1b1;
+    --color2: #52339a;
+}
+
+.bt {
+    margin: 5px;
+}
+
+
+.my_f {
+  border-radius: 10px; /* задаем радиус скругления краев */
+  background-color: #d9f5f5; /* задаем цвет фона блока */
+  padding: 5px; /* добавляем отступы внутри блока */
+  margin: 5px; /* добавляем отступ снизу для разделения блоков */
+
+}
+
+.my_c {
+  justify-content: center;
+  padding: 5px;
+  margin: 10px;
+}
+
+
+

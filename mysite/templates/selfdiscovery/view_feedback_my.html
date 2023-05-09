@@ -1,0 +1,35 @@
+{% extends 'selfdiscovery/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row" style="content-align: center">
+    <h2 style="text-align:center">Ваші відгуки</h2>
+    <a style="text-align:center; color: cadetblue" href="{%url 'contacts'%}">Залишити відгук</a>
+  </div>
+
+  {% if feedbacks %}
+    <div class="container">
+      <div class="row" style="justify-content: center">
+      {% for feedback in feedbacks %}
+         <div class="col-xl-5 col-md-6 col-sm-12 my_f" style="content-align: center" >
+          <p><h3>{{ feedback.subject }}</h3> </p>
+          <p >  {{ feedback.message }}
+           <hr> {{ feedback.created_at }}
+          </p>
+
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="container">
+    <p><h1>Ви ще не залишили жодного відгуку. Нам цікава Ваша думка!</h1></p>
+    </div>
+    </div>
+
+  {% endif %}
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{%extends 'selfdiscovery/base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title%}
+    Особистий кабінет
+{%endblock%}
+
+
+{% block content %}
+<div class="container">
+  <div class="row" style="justify-content: center">
+
+      <h2 style="text-align:center">Вітаю, {{ user.username }}!</h2>
+<!--      <p style="text-align:center">Особистий кабінет</p>-->
+
+       <div class="col-xl-5 col-md-6 col-sm-12 "  style="margin: 5px">
+          <h2>Особиста інформація</h2>
+          {% for field in info %}
+            {{ field|as_crispy_field }}
+          {% endfor %}
+      </div>
+       <div class="col-xl-5 col-md-5 col-sm-12" >
+           <a href="{%url 'view_feedback_my'%}" style="text-align:right; color: cadetblue"><h3>Залишити відгук / Мої відгуки </h3></a>
+           <a href="#" id="update-profile-link" style="text-align:right; color: cadetblue"><h3>Змінити данні профілю</h3></a>
+            <div id="update-profile-form" style="display: none;">
+                <form method="post" enctype="multipart/form-data" >
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button type="submit" class="btn btn-success bt" >Застосувати</button>
+                </form>
+            </div>
+           <a href="#" id="change-password-link" style="text-align:right; color: cadetblue"><h3>Змінити пароль</h3></a>
+              <div id="change-password-form" style="display: none;">
+                <form method="post">
+                  {% csrf_token %}
+                  {{ passw|crispy }}
+                  <button type="submit " class="btn btn-success bt">Застосувати</button>
+                </form>
+              </div>
+           <a href="#" id="contact-admin-link" style="text-align:right; color: cadetblue"><h3>Написати повідомлення</h3></a>
+            <div id="contact-admin-form" style="display: none;">
+                <form method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label" hidden ></label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ user.username }}" required readonly hidden>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Контактний номер телефону</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label" hidden>Email</label>
+                        <input type="email" class="form-control" id="email" name="email"value="{{ user.email }}" required readonly hidden>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Тема звернення</label>
+                        <input type="text" class="form-control" id="subject" name="subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Повідомлення</label>
+                        <textarea class="form-control" id="message" rows="6" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary bt">Відправити</button>
+                </form>
+            </div>
+  </div>
+</div>
+    </div>
+
+{% endblock %}

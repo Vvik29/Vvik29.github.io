@@ -1,0 +1,50 @@
+{% extends 'selfdiscovery/base.html' %}
+{% load crispy_forms_tags %}
+{%load static%}
+
+{% block title%}
+    Контакти
+{%endblock%}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+            <h1>Контакти</h1>
+        <!--        <p>Адреса:  </p>-->
+            <p>Телефон: </p>
+            <p>Email:  </p>
+          </div>
+
+          <div class="col-md-6">
+            <h1>Робочий час</h1>
+            <p>Пн - Пт: 10-18</p>
+            <p>Сб: 10-14 </p>
+          </div>
+
+          <div class="col-md-6">
+            <!-- форма для заказа обратной связи -->
+            {% if user.is_authenticated %}
+
+            <h1>Залишити відгук</h1>
+            <form action="{% url 'contact_success'%}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary bt">Відправити</button>
+                 <form method="post" action="main">
+                 </form>
+            </form>
+
+            {% else %}
+                {%include 'selfdiscovery/contacts_not_user.html'%}
+            {% endif %}
+          </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
