@@ -11,15 +11,15 @@
   },
   "routes": [
     {
-      "src": "/mysite/*",
-      "dest": "https://mysite.com/:splat"
+      "src": "/*",
+      "dest": "https://mysite.com"
     },
       {
-    "src": "/mysite/:type",
-    "dest": "/api/feedback/:id"
+    "src": "/mysite/",
+    "dest": "/mysite/*"
     } ,
       {
-    "src": "/mysite/:id",
+    "src": "/mysite/*",
     "dest": "urls.py"
     },
 
