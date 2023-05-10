@@ -1,19 +1,15 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "vercel.json",
-      "use": "@vercel/node"
-    }
+      {
+          "src": "*.py",
+          "use": "@liudonghua123/now-flask"
+      }
   ],
   "routes": [
-    {
-      "src": "/mysite/(.*)",
-      "dest": "mysite/wsgi.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "mysite/wsgi.py"
-    }
+      {
+          "src": "(.*)",
+          "dest": "app.py"
+      }
   ]
 }
