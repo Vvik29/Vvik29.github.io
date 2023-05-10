@@ -11,18 +11,9 @@
   },
   "routes": [
     {
-      "src": "/mysite/*",
-      "dest": "https://mysite.com/:splat"
+      "src": "/(.*)",
+      "dest": "/mysite/selfdiscovery/urls.py"
     },
-      {
-    "src": "/mysite/:type",
-    "dest": "/api/feedback/:id"
-    } ,
-      {
-    "src": "/mysite/:id",
-    "dest": "urls.py"
-    },
-
     {
       "src": "/static/(.*)",
       "dest": "/static/:splat"
