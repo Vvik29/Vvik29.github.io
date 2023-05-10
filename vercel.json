@@ -15,8 +15,8 @@
       "dest": "/mysite/selfdiscovery/urls.py"
     },
     {
-      "src": "/static/(.*)",
-      "dest": "/static/:splat"
+        "src": "^/(|main.html)$",
+      "dest": "/mysite/selfdiscovery/views.main"
     }
   ],
   "files": [
