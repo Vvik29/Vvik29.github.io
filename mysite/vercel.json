@@ -1,13 +1,27 @@
 {
-	"builds": [{
-			"src": "mysite/wsgi.py",
-			"use": "@vercel/python",
-			"config": {"maxLambdaSize": "15mb", "runtime": "python3.11" }
-	}],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "mysite/wsgi.py"
-		}
-	]
+  "version": 2,
+  "name": "my-project",
+  "alias": ["www.my-project.com", "my-project.com"],
+  "env": {
+    "API_KEY": "xxxxxx"
+  },
+  "build": {
+    "command": "npm run build",
+    "output": "dist"
+  },
+  "routes": [
+    {
+      "src": "/api/*",
+      "dest": "https://my-api.com/:splat"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/:splat"
+    }
+  ],
+  "files": [
+    "public/**/*",
+    "src/**/*",
+    "!src/tests/**/*"
+  ]
 }
