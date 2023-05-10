@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/mysite/(.*)",
-      "dest": "mysite/$1"
+      "dest": "mysite/wsgi.py"
     },
     {
       "src": "/(.*)",
-      "dest": "public/$1"
+      "dest": "public/wsgi.py"
     }
   ]
 }

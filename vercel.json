@@ -9,8 +9,7 @@
 			"src": "/(.*)",
 			"dest": "mysite/wsgi.py"
 		},
-		{ "handle": "filesystem" },
-    	{ "src": "/(.*)", "status": 404, "dest": "/other-404.html" }
+
 	],
 
 	"rewrites": [{ "source": "/api/(.*)", "destination": "/api/404.js" }],
