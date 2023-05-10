@@ -11,17 +11,18 @@
   },
   "routes": [
     {
-      "src": "/mysite",
-      "dest": "https://karsteg.com/:splat"
+      "src": "/mysite/*",
+      "dest": "https://mysite.com/:splat"
     },
       {
-    "src": "/mysite",
-    "dest": "/mysite/"
+    "src": "/mysite/:type",
+    "dest": "/api/feedback/:id"
     } ,
-    {
-      "src": "/mysite/",
-      "dest": "urls.py"
+      {
+    "src": "/mysite/:id",
+    "dest": "urls.py"
     },
+
     {
       "src": "/static/(.*)",
       "dest": "/static/:splat"
