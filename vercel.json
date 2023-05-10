@@ -11,8 +11,12 @@
   },
   "routes": [
     {
-      "src": "/mysite/*",
-      "dest": "https://my-api.com/:splat"
+      "src": "/mysite",
+      "dest": "https://karsteg.com/:splat"
+    },
+    {
+      "src": "/mysite/",
+      "dest": "urls.py"
     },
     {
       "src": "/static/(.*)",
