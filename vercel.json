@@ -11,7 +11,7 @@
   },
   "routes": [
     {
-      "src": "/api/*",
+      "src": "/mysite/*",
       "dest": "https://my-api.com/:splat"
     },
     {
